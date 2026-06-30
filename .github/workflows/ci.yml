@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   ci:
     name: Install, Lint & Build
@@ -26,8 +29,6 @@ jobs:
 
       - name: Generate Prisma Client
         run: npm run db:generate
-        env:
-          DATABASE_URL: "******localhost:5432/tallerflow"
 
       - name: Lint
         run: npm run lint
@@ -35,4 +36,4 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          DATABASE_URL: "******localhost:5432/tallerflow"
+          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/tallerflow"
