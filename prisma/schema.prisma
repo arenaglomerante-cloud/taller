@@ -32,6 +32,11 @@ enum MovementType {
   OUT
 }
 
+enum WhatsAppMessageDirection {
+  INBOUND
+  OUTBOUND
+}
+
 // ─── Modelos ─────────────────────────────────────────────────────────────────
 
 model User {
@@ -121,4 +126,14 @@ model InventoryMovement {
   partId    String
   part      Part         @relation(fields: [partId], references: [id])
   createdAt DateTime     @default(now())
+}
+
+model WhatsAppMessage {
+  id         String                   @id @default(cuid())
+  waMessageId String?                 @unique
+  direction  WhatsAppMessageDirection
+  from       String
+  to         String
+  body       String
+  createdAt  DateTime                 @default(now())
 }
