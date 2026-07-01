@@ -37,6 +37,12 @@ const modules = [
     description: "Métricas y KPIs del taller",
     icon: "📊",
   },
+  {
+    href: "/whatsapp",
+    title: "WhatsApp",
+    description: "Pruebas de envío y estado de conexión",
+    icon: "💬",
+  },
 ];
 
 export default function HomePage() {
